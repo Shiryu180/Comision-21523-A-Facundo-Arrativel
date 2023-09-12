@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crear Nueva Publicación</title>
+  <!-- Agregar el enlace a los estilos de Bootstrap -->
+  <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9' crossorigin='anonymous'>
+</head>
+<body>
+  <div class="container">
+    <h1 class="mt-5">Crear Nueva Publicación</h1>
+      <form id="form-post" action="/home/create" method="POST" class="mt-4">
+          <div class="mb-3">
+            <label for="title" class="form-label">Título</label>
+            <input type="text" class="form-control" id="titulo" name="title" required>
+          </div>
+          <div class="mb-3">
+            <label for="content" class="form-label">Contenido</label>
+            <textarea class="form-control" id="contenido" name="content" rows="4" required></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="imageUrl" class="form-label">URL de la Imagen:</label>
+            <input type="text" class="form-control" id="img_url" name="imageUrl">
+          </div>
+          <div class="mb-3">
+              <label for="createdAt" class="form-label">Fecha de Creación</label>
+              <input type="date" class="form-control" id="fecha" name="createdAt" required>
+            </div>
+          <button type="submit" class="btn btn-primary">Crear Publicación</button>
+        </form>
+        <a class="btn btn-secondary mt-4" href="/home">Volver a la Lista de Publicaciones</a>
+      </div>
+<script src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js' integrity='sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm' crossorigin='anonymous'></script>      
+<script src="/js/home.js"></script>
+</body>
+</html>
