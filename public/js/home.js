@@ -1,29 +1,37 @@
+const obtenerPublicaciones = async () => {
+    const response =await fetch('/publicaciones')
+    const data = await response.json()
+    return data;
+}
 
-const formGuardar = document.querySelector("#form-guardar")
+const mostrarPublicaciones = (publicaciones, elementoHtml) => {
 
-formGuardar-addEventListener('submit', (e) => {
-    e.preventDefault();
+    let resgistros = "";
 
-    const inputTitulo = document.querySelector('#titulo-post').value;
-    const inputDetalle = document.querySelector('#detalle-post').value;
+    publicaciones.forEach((publicacion) => {
+        resgistros += `
+              <section class="d-flex gap-2">
+              <img src="${publicacion.url_imagen}" class="rounded" height=200 >
+              <div class="d-flex flex-column justify-content-between">
+                  <h5>${publicacion.titulo}</h5>
+                  <p>${publicacion.descripcion}</p>
+                  <p>${publicacion.fecha}</p>
+              </div>
+              </section>
+          `;
+    })
 
-    console.log(inputTitulo);
-    console.log(inputDetalle);
-})
+    elementoHtml.innerHTML = resgistros;
 
+}
 
-const formPost = document.querySelector("#form-post")
-formPost-addEventListener('submit', (e) =>{
-    e.preventDefault();
+document.addEventListener('DOMContentLoaded', async () => {
+    const publicaciones = await obtenerPublicaciones();
+    console.log(publicaciones);
 
-    const Titulo = document.querySelector('#titulo').value;
-    const Contenido = document.querySelector('#contenido').value;
-    const img_URL = document.querySelector('#img_url').value;
-    const Fecha = document.querySelector('#fecha').value;
+    const main = document.querySelector('#lista-publicaciones')
 
-    console.log(Titulo);
-    console.log(Contenido);
-    console.log(img_URL);
-    console.log(Fecha);
+    mostrarPublicaciones(publicaciones, main)
+
 
 })

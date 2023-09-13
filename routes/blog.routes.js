@@ -1,22 +1,19 @@
+const { crearPublicacion, verCreacion, verHome, obtenerPublicaciones, actualizarPublicaciones, eliminarPublicaciones, verEdicion } = require('../controllers/blog.controllers');
+
 const router = require ('express').Router();
 
-router.get('/home',(req, res) =>{
-    res.render('home')
-})
+router.get('/',verHome)
 
-router.get('/create',(req, res) =>{
-    res.render('create')
-})
+router.get('/create', verCreacion)
 
-router.post('/user', (req, res) => {
+// router.get('/create/:id', verEdicion)
 
-    const {name, lastname, id} = req.body
+router.post('/publicacion', crearPublicacion);
 
-    res.send({
-        name,
-        lastname,
-        id
-    })
-})
+router.get('/publicaciones', obtenerPublicaciones);
+
+router.put('/publicacion/:id', actualizarPublicaciones);
+
+router.delete('/publicacion/:id', eliminarPublicaciones);
 
 module.exports = router;
