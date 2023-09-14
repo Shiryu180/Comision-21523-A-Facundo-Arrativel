@@ -6,7 +6,7 @@ ctrl.verCreacion = async (req, res) => {
 }
 
 ctrl.verHome = async (req, res) => {
-    res.render('homeprueba', { Publicaciones })
+    res.render('home', { Publicaciones })
 }
 
 
