@@ -15,12 +15,12 @@ Instalar las dependencias necesarias antes de ejecutar el proyecto:
 
 Las dependencias incluidas en el proyecto son las siguientes:
 
-- **express**: Framework web de Node.js.
-- **body-parser**: Middleware para analizar las solicitudes HTTP entrantes.
-- **cors**: Middleware para habilitar el acceso a recursos en diferentes dominios (CORS).
-- **morgan**: Middleware para registrar solicitudes HTTP.
-- **sequelize**:
-- **mysql2**:
+- **express**
+- **body-parser**
+- **cors**
+- **morgan**
+- **sequelize**
+- **mysql2**
 - **dotenv** (opcional)
 - **nodemon** (opcional)
 
