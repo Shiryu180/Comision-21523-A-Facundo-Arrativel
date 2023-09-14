@@ -30,28 +30,42 @@ ctrl.obtenerPublicaciones = async (req, res) => {
     res.json(publicaciones)
 }
 
-ctrl.actualizarPublicaciones = async (req, res) => {
+// ctrl.actualizarPublicaciones = async (req, res) => {
 
+//     const { id } = req.params;
+//     const publicacion = await Publicaciones.findByPk(id)
+//     publicacion.set(req.body)
+//     await publicacion.save()
+
+//     res.json({msg: "Publicacion actualizada correctamente"})
+
+//         }
+ctrl.actualizarPublicacion = async (req, res) => {
     const { id } = req.params;
+
     const publicacion = await Publicaciones.findByPk(id)
     publicacion.set(req.body)
-    await publicacion.save()
 
-    res.json({msg: "Publicacion actualizada correctamente"})
+    await publicacion.save() // Con esta instrucción se guarda en la BD
 
-        }
+    res.json({
+        msg: "Publicación actualizada correctamente"
+    })
+};
 
-ctrl.eliminarPublicaciones = async (req, res) => {
-
+ctrl.eliminarPublicacion = async (req, res) => {
     const { id } = req.params;
-    await publicacion.destroy({
-        where:{
+
+    await Publicaciones.destroy({
+        where: {
             id
         }
-    })
-    res.json({msg: "Publicacion eliminada correctamente"})
+    });
 
-        
-    }
+    res.json({
+        msg: "Publicación eliminada correctamente"
+    })
+
+}
 
     module.exports = ctrl;
